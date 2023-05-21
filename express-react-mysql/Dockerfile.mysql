@@ -1,6 +1,6 @@
 FROM mysql:latest
 
-ENV MYSQL_ROOT_PASSWORD=examplepassword
-ENV MYSQL_DATABASE=myapp
+ENV MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
+ENV MYSQL_DATABASE=${DATABASE_NAME}
 
-COPY ./db-scripts/ /docker-entrypoint-initdb.d/
+COPY ./db/init.sql/ /docker-entrypoint-initdb.d/

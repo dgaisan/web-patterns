@@ -1,26 +1,25 @@
 version: '3'
 services:
   app:
-    build: .
+    image: node-service:1.4
+    container_name: client-service
     ports:
-      - "5000:5000"
+      - 3002:3000
     environment:
-      - DB_HOST=db
+      - DB_HOST=database-service
       - DB_PORT=3306
-      - DB_USER=myuser
-      - DB_PASSWORD=mypass
-      - DB_NAME=mydb
+      - DB_USER=root
+      - DB_PASSWORD=${DATABASE_PASSWORD}
+      - DB_NAME=${DATABASE_NAME}
     depends_on:
       - db
   db:
-    build:
-      context: .
-      dockerfile: Dockerfile.mysql
-    environment:
-      - MYSQL_DATABASE=mydb
-      - MYSQL_USER=myuser
-      - MYSQL_PASSWORD=mypass
-      - MYSQL_ROOT_PASSWORD=myrootpass
+    image: mysql:latest
+    container_name: database-service
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
     volumes:
       - db_data:/var/lib/mysql
 volumes:
