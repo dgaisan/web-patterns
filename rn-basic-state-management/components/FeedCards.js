@@ -14,8 +14,6 @@ export const FeedCards = () => {
 
   useEffect(() => {
     setCards(listOfCards);
-    console.log(listOfCards);
-
   }, []);
 
   return (

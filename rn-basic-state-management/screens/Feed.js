@@ -1,8 +1,7 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { HorizontalAvatars } from "../components/HorizontalAvatars";
 import { FeedCards } from "../components/FeedCards";
-import { SafeAreaView } from "react-native";
 
 export const Feed = () => {
   return (
