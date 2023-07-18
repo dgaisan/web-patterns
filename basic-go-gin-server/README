@@ -1,0 +1,16 @@
+# Simple HTTP server using Gin
+
+## Build project
+go build
+
+## Run server
+go run main.go
+
+## Test application
+- Ping
+`curl http://localhost:8001/ping`
+- Create user
+`curl --location --request POST 'localhost:8001/user/' --header 'Content-Type: application/json' --data-raw '{ "id": "xyz-101010", "firstName": "John", "lastName": "Wild", "email": "jwild@example.com" }' `
+- List users
+`curl http://localhost:8001/users`
+
