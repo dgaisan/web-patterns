@@ -14,3 +14,7 @@ go run main.go
 - List users
 `curl http://localhost:8001/users`
 
+
+## Explicitly added dependencies
+- `go get github.com/gin-gonic/gin`
+- `go get github.com/go-redis/redis/v8`
