@@ -5,7 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -20,4 +20,7 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Starting server at port ${PORT}`);
+  console.log("Environment:");
+  console.log("MONGODB_URI:", process.env.MONGODB_URI);
+
 });
