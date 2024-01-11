@@ -1,5 +1,5 @@
-## Secured API using Express.js
+# Secured API using Express.js
 This pattern represents a node.js app (express.js) with secured API
 
-### Run app
+## Run app
 - docker compose up --build
