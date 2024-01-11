@@ -1,7 +1,9 @@
 # This is an web app template that comprises Express.js backend, React.js frontend, and MySQL Server
 
 
-## First build MySQL image
+## create a copy `.env.template`, rename it to `.env` and update environment variables accordingly  
+
+## build MySQL image
 - docker build -t myApp-mysql -f Dockerfile.mysql .
 
 ## In order to build webapp follow steps bellow:
