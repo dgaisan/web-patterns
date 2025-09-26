@@ -1,7 +1,7 @@
 import { ofType, type Epic } from 'redux-observable';
 import { delay, map, tap } from 'rxjs/operators';
 import { increment, incrementByAmount } from './counterSlice';
-import { type RootState } from '../store';
+import { type RootState } from '../../store';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const counterEpic: Epic<any, any, RootState> = (action$) =>
