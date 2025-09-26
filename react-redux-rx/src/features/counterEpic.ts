@@ -1,5 +1,5 @@
 import { ofType, type Epic } from 'redux-observable';
-import { delay, map } from 'rxjs/operators';
+import { delay, map, tap } from 'rxjs/operators';
 import { increment, incrementByAmount } from './counterSlice';
 import { type RootState } from '../store';
 
@@ -7,6 +7,7 @@ import { type RootState } from '../store';
 export const counterEpic: Epic<any, any, RootState> = (action$) =>
   action$.pipe(
     ofType(increment.type),
+    tap(() => console.log("Epic saw increment!")), // 👀 debug
     delay(2000),
     map(() => incrementByAmount(5))
   );

@@ -3,26 +3,17 @@ import { createEpicMiddleware } from "redux-observable";
 import { rootReducer } from "./rootReducer";
 import { rootEpic } from "./rootEpic";
 
+
+export type RootState = ReturnType<typeof rootReducer>;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const epicMiddleware = createEpicMiddleware<any, any, RootState, any>();
+
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefault) =>
     getDefault({ thunk: false })
-      .concat(),
+      .concat(epicMiddleware),
 });
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
-const epicMiddleware = createEpicMiddleware<
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-  RootState // State type
->();
-
-store.replaceReducer(rootReducer);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(store as any).dispatch = store.dispatch;
 
 epicMiddleware.run(rootEpic);
