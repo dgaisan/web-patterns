@@ -1,2 +1,2 @@
 # web-patterns
-Web patterns for Rapid Web Development
+Misc web patterns for Rapid Web Development
